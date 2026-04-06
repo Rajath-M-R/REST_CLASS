@@ -10,9 +10,23 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
+let posts = [
+    {
+        username : "Rajath M R",
+        content : "I love Coding"
+    },
+    {
+        username : "Vishwas",
+        content : "I love talking"
+    },
+    {
+        username : "Prajwal",
+        content : "I love playing FF"
+    }
+];
 
-app.get("/", (req, res) => {
-    res.send("Hello Rajath! Your Express server is running 🚀");
+app.get("/posts", (req, res) => {
+    res.render("index.ejs", {posts});
 });
 
 app.listen(port, () => {
